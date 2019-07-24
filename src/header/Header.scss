@@ -1,4 +1,4 @@
-$charcoal: #bbb;
+$charcoal: black;
 
 .main-header {
   align-items: center;
@@ -6,9 +6,11 @@ $charcoal: #bbb;
   display: flex;
   height: 100px;
   padding: 0 20px;
+  background-color: goldenrod;
+  
 
   a,
-  span {
+span {
     font-size: 1.2em;
     margin: 0 15px;
   }

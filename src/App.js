@@ -9,6 +9,14 @@ import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 import AlertDismissible from './auth/components/AlertDismissible'
+import ShowProduct from './products/ShowProduct'
+import IndexProduct from './products/IndexProduct'
+import Home from './Home'
+import CreateProduct from './products/CreateProduct'
+import EditProduct from './products/EditProduct'
+
+
+
 
 class App extends Component {
   constructor () {
@@ -44,12 +52,31 @@ class App extends Component {
           <Route path='/sign-in' render={() => (
             <SignIn alert={this.alert} setUser={this.setUser} />
           )} />
+          <Route exact path='/'render={() => (
+            <Home />
+          )}/>
           <AuthenticatedRoute user={user} path='/sign-out' render={() => (
             <SignOut alert={this.alert} clearUser={this.clearUser} user={user} />
           )} />
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword alert={this.alert} user={user} />
           )} />
+
+          <AuthenticatedRoute  user={user} exact path='/products' render={() => (
+          <IndexProduct  user={user}/>
+          )}/>
+
+          <AuthenticatedRoute  user={user} path='/products/:id' render={(props) => (
+            <ShowProduct user={user} />
+          )}/>   
+            <AuthenticatedRoute  user={user} path='/create' render={() => (
+            <CreateProduct user={user} alert={this.alert} />
+          )}/>
+          <AuthenticatedRoute user={user} path='/products/:id/edit' render={(props) => (
+            <EditProduct user={user}/>
+          )}/>
+      
+      
         </main>
       </React.Fragment>
     )
