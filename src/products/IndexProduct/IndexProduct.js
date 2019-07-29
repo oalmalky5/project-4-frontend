@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
-import {index,destroy} from './api'
+import {index,destroy} from '../api'
 import {Link} from 'react-router-dom';
+import "./IndexProduct.css";
+
 
 class IndexProduct extends Component{
     state={
@@ -28,7 +30,7 @@ class IndexProduct extends Component{
         destroy(user,productId)
         .then(() =>  alert('deleted'))
         .then(() => {
-            const newProducts = this.state.products.filter((product)  => product._id  != productId)
+            const newProducts = this.state.products.filter((product)  => product._id  !== productId)
             this.setState({
                 products:newProducts
             })
@@ -42,13 +44,21 @@ class IndexProduct extends Component{
         return(
             <div>
             {this.state.products.map((product,index) => (
-               <div key={index}>
-                    <Link to={`/products/${product._id}`}><h1>{product.name}</h1></Link>
-                    <h1>{product.description}</h1>
-                    <h1>{product.price}</h1>
-                    <img src={product.imageURL} alt=""/>
-                    <button onClick={() => this.destroy(product._id)}>Delete</button>
-                    <Link to={`/products/${product._id}/edit`}><button>Edit</button></Link>
+            <div key={index}>
+
+            <div className="Product-Image-Wrapper">
+                <img src={product.imageURL} alt={product.name} className="Product-Image" />
+            </div>
+
+            <div className="Product-Title">
+                <p className="Product-Name">{product.name}</p>
+            </div>        
+            <div className="Product-Data">
+                <small className="Product-Price">${product.price}</small>
+                <button onClick={ product.addToCart } className="product-button Product-Add">Add to Cart</button>
+                <button onClick={() => this.destroy(product._id)}>Remove</button>
+
+           </div>
                 </div>
             ))}
         </div>       

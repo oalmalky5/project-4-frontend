@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom'
 
 import { signIn } from '../api'
 import messages from '../messages'
+import './SignIn.css'
 
 class SignIn extends Component {
   constructor () {
@@ -37,9 +38,20 @@ class SignIn extends Component {
   render () {
     const { email, password } = this.state
 
+//     <div class="form-style-8">
+//   <h2>Login to your account</h2>
+//   <form>
+//     <input type="text" name="field1" placeholder="Full Name" />
+//     <input type="email" name="field2" placeholder="Email" />
+//     <input type="url" name="field3" placeholder="Website" />
+//     <textarea placeholder="Message" onkeyup="adjust_textarea(this)"></textarea>
+//     <input type="button" value="Send Message" />
+//   </form>
+// </div>
+
     return (
       <form className='auth-form' onSubmit={this.onSignIn}>
-        <h3>Sign In</h3>
+        <h2>LOGIN TO YOUR ACCOUNT</h2>
         <label htmlFor="email">Email</label>
         <input
           required

@@ -29,7 +29,7 @@ class EditProduct extends Component{
         const name =  event.target.name;
         //get value of input
         const value =   event.target.value;
-        const newForm  =  Object.assign(this.state.dataFrom)
+        const newForm  =  Object.assign(this.state.dataForm)
         newForm[name] = value;
         this.setState({
             dataForm:newForm
@@ -41,7 +41,7 @@ class EditProduct extends Component{
         
         const  user = this.props.user;
         const  productId = this.props.match.params.id;
-        const  updateProduct = this.state.dataFrom
+        const  updateProduct = this.state.dataForm
         update(user,  updateProduct, productId)
         .then(() => this.props.history.push(`/products/${productId}`))
         .catch((error) => console.log(error))

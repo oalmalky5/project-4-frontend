@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {create} from './api'
+import {create} from '../api'
 import {withRouter} from 'react-router-dom'
 
 class CreateProduct extends Component{
@@ -25,7 +25,8 @@ class CreateProduct extends Component{
     handleSubmit = (event) => {
         event.preventDefault();
         const newProduct = this.state.dataForm
-        const user = this.props.user
+        const user = this.props.user 
+        console.log(user)
         create(user, newProduct)
         .then(() => this.props.alert('Created', 'success'))
         .then(() => this.props.history.push('/products'))
@@ -33,21 +34,24 @@ class CreateProduct extends Component{
     }
 
     render(){
+       
         return(
+
             <form onSubmit={this.handleSubmit}>
                 <label>Name Of Product</label>
-                <input onChange={this.handleChange} type="text" name="name" value={this.state.dataForm.name}></input>
+                <input onChange={this.handleChange} type="text" name="name" value={this.state.dataForm.name} class="input1"></input>
                 <label>Description</label>
-                <input onChange={this.handleChange} type="text" name="description" value={this.state.dataForm.description}/>
+                <input onChange={this.handleChange} type="text" name="description" value={this.state.dataForm.description} class="input"/>
                 <label>Image</label>
-                <input onChange={this.handleChange} type="text" name="imageURL" value={this.state.dataForm.imageURL}/>
+                <input onChange={this.handleChange} type="text" name="imageURL" value={this.state.dataForm.imageURL} class="input3"/>
                 <label>Price</label>
-                <input onChange={this.handleChange} type="integer" name="price" value={this.state.dataForm.price}/>
-                <button type="Submit">Add</button>
+                <input onChange={this.handleChange} type="integer" name="price" value={this.state.dataForm.price} class="input4"/>
+                <button type="Submit" class="btn btn-info btn-lg">Add</button>
             </form>
-    
+           
         )
     }
 }
+
 
 export default withRouter(CreateProduct)

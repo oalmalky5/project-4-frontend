@@ -1,7 +1,7 @@
- import React, { Component } from 'react'
+import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 
-import { signUp, signIn } from '../api'
+import { signUpAdmin, signIn } from '../api'
 import messages from '../messages'
 
 class SignUp extends Component {
@@ -24,7 +24,7 @@ class SignUp extends Component {
 
     const { alert, history, setUser } = this.props
 
-    signUp(this.state)
+    signUpAdmin(this.state)
       .then(() => signIn(this.state))
       .then(res => setUser(res.data.user))
       .then(() => alert(messages.signUpSuccess, 'success'))

@@ -10,11 +10,12 @@ import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 import AlertDismissible from './auth/components/AlertDismissible'
 import ShowProduct from './products/ShowProduct'
-import IndexProduct from './products/IndexProduct'
+import IndexProduct from './products/IndexProduct/IndexProduct'
 import Home from './Home'
-import CreateProduct from './products/CreateProduct'
+import CreateProduct from './products/CreateProduct/CreateProduct'
 import EditProduct from './products/EditProduct'
-
+import SignUpAdmin from './auth/components/SignUpAdmin'
+import Search from './products/Search'
 
 
 
@@ -46,12 +47,18 @@ class App extends Component {
           <AlertDismissible key={index} variant={alert.type} message={alert.message} />
         ))}
         <main className="container">
-          <Route path='/sign-up' render={() => (
+          <Route exact path='/sign-up' render={() => (
             <SignUp alert={this.alert} setUser={this.setUser} />
           )} />
+
+          <Route path='/sign-up/admin' render={() => (
+            <SignUpAdmin alert={this.alert} setUser={this.setUser} />
+          )} />
+
           <Route path='/sign-in' render={() => (
             <SignIn alert={this.alert} setUser={this.setUser} />
           )} />
+          
           <Route exact path='/'render={() => (
             <Home />
           )}/>
@@ -75,6 +82,8 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/products/:id/edit' render={(props) => (
             <EditProduct user={user}/>
           )}/>
+
+          <Search />
       
       
         </main>
