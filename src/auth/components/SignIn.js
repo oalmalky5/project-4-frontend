@@ -52,19 +52,24 @@ class SignIn extends Component {
     return (
       <form className='auth-form' onSubmit={this.onSignIn}>
         <h2>LOGIN TO YOUR ACCOUNT</h2>
-        <label htmlFor="email">Email</label>
+        <label  id="inputIconEx2" ></label>
         <input
           required
-          type="email"
+          type="text"
           name="email"
+          id="inputIconEx2"
+          class="form-control"
           value={email}
           placeholder="Email"
           onChange={this.handleChange}
         />
-        <label htmlFor="password">Password</label>
+        <label id="inputIconEx2"></label>
         <input
           required
+          type="text"
           name="password"
+          id="inputIconEx2"
+          class="form-control"
           value={password}
           type="password"
           placeholder="Password"

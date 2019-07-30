@@ -58,10 +58,19 @@ class App extends Component {
           <Route path='/sign-in' render={() => (
             <SignIn alert={this.alert} setUser={this.setUser} />
           )} />
+
+          <AuthenticatedRoute user={user} exact path='/'render={() => (
+            <Search user={user} />
+
+          )}/>
+
           
           <Route exact path='/'render={() => (
             <Home />
+
           )}/>
+
+
           <AuthenticatedRoute user={user} path='/sign-out' render={() => (
             <SignOut alert={this.alert} clearUser={this.clearUser} user={user} />
           )} />
@@ -82,8 +91,10 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/products/:id/edit' render={(props) => (
             <EditProduct user={user}/>
           )}/>
+          
 
-          <Search />
+
+
       
       
         </main>

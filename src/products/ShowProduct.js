@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {show} from './api'
-
+import {Link, withRouter} from 'react-router-dom'
 class ShowProduct extends Component{
     state =  {
         product:{}
@@ -9,11 +9,13 @@ class ShowProduct extends Component{
 
 componentDidMount(){
     const user = this.props.user;
-    const productId = this.props.productId
+    const productId = this.props.match.params.id
     show(user, productId)
     .then((response) => {
+        console.log(response)
+        console.log("response")
         const showProduct  =  response.data.product;
-        this.ListeningStateChangedEvent({
+        this.setState({
             product: showProduct
         })
     })
@@ -22,12 +24,24 @@ componentDidMount(){
 
 render(){
     return(
+        // <h1>{this.state.product.name}</h1>
+
         <div>
-            <h1>{this.state.product.title}</h1>
-            <img src={this.state.product.imageUrl} alt="" />
+            <div className="Product-Image-Wrapper ">
+                <img src={this.state.product.imageURL} alt={this.state.product.name} className="Product-Image" />
+            </div>
+
+            <div className="Product-Title text-danger "  >
+                <p className="Product-Name">{this.state.product.name}</p>
+            </div>        
+            <div className="Product-Data">
+                <small className="Product-Price">${this.state.product.price}</small>
+                <button onClick={ this.state.product.addToCart } className="product-button Product-Add">Add to Cart</button>
+
+           </div>
         </div>
     )
 }
 }
 
-export default ShowProduct
+export default withRouter(ShowProduct)

@@ -42,15 +42,15 @@ class IndexProduct extends Component{
     render(){
         // console.log(this.props.user)
         return(
-            <div>
+            <div >
             {this.state.products.map((product,index) => (
             <div key={index}>
 
-            <div className="Product-Image-Wrapper">
+            <div className="Product-Image-Wrapper ">
                 <img src={product.imageURL} alt={product.name} className="Product-Image" />
             </div>
 
-            <div className="Product-Title">
+            <div className="Product-Title text-danger "  >
                 <p className="Product-Name">{product.name}</p>
             </div>        
             <div className="Product-Data">

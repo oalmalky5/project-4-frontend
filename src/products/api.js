@@ -11,6 +11,13 @@ export const index = (user)  =>  {
         }
     })
 }
+export const allproducts = ()  =>  {
+    return  Axios({
+        method:'GET',
+        url: apiUrl + '/productsAll'
+        
+    })
+}
 
 export const show = (user, productId) => {
     return Axios({
@@ -60,5 +67,10 @@ export const update = (user, updateProduct, productId) => {
 }
 
 
-
+export const search = (name) => {
+    return Axios({
+        method: 'GET',
+        url:apiUrl + `/products/search?name=${name}`,
+    })
+}
 
