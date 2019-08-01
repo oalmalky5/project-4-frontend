@@ -57,6 +57,8 @@ after this was accomplished, it was the time to think about adding more features
 
 
 
+## Running the App
+
 npm  
 ```
 $ npm install
