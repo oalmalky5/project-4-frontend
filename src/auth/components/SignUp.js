@@ -43,31 +43,37 @@ class SignUp extends Component {
       <form className='auth-form' onSubmit={this.onSignUp}>
         <h3>Sign Up</h3>
 
-        <label htmlFor="email">Email</label>
+        <label id="inputIconEx2"></label>
         <input
           required
           name="email"
           value={email}
           type="email"
+          id="inputIconEx2"
+          class="form-control"
           placeholder="Email"
           onChange={this.handleChange}
           className="form-control"
         />
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password"></label>
         <input
           required
           name="password"
           value={password}
           type="password"
+          class="form-control"
           placeholder="Password"
+          id="inputIconEx2"
           onChange={this.handleChange}
         />
-        <label htmlFor="passwordConfirmation">Confirm Password</label>
+        <label id="inputIconEx2"></label>
         <input
           required
           name="passwordConfirmation"
           value={passwordConfirmation}
           type="password"
+          id="inputIconEx2"
+          class="form-control"
           placeholder="Confirm Password"
           onChange={this.handleChange}
         />
@@ -81,7 +87,7 @@ class SignUp extends Component {
           <input type="checkbox" id="accept-terms" class="form-check-input" />
           <label for="accept-terms" class="form-check-label">Accept Terms &amp; Conditions</label>
         </div>
-        <button type="submit">Sign Up</button>
+        <button type="Submit" class="btn btn-info btn-lg">Sign Up</button>
       </form>
     )
   }

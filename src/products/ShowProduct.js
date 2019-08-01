@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import {show} from './api'
+import {show, destroy} from './api'
 import {Link, withRouter} from 'react-router-dom'
 class ShowProduct extends Component{
     state =  {
-        product:{}
+        product:[]
     }
 
 
@@ -22,6 +22,7 @@ componentDidMount(){
     .catch((error) => console.log(error))
 }
 
+
 render(){
     return(
         // <h1>{this.state.product.name}</h1>
@@ -36,7 +37,7 @@ render(){
             </div>        
             <div className="Product-Data">
                 <small className="Product-Price">${this.state.product.price}</small>
-                <button onClick={ this.state.product.addToCart } className="product-button Product-Add">Add to Cart</button>
+                <button className="product-button Product-Add">Add to Cart</button>
 
            </div>
         </div>

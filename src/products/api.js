@@ -43,13 +43,10 @@ export const create = (user, newProduct) => {
 }
 
 
-export const destroy = (user,productId) => {
+export const destroy = (productId) => {
     return Axios({
         method:"DELETE",
-        url:apiUrl + `/products/${productId}`,
-        headers:{
-            "Authorization":`Bearer ${user.token}`
-        }
+        url:apiUrl + `/products/${productId}`
     })
 }
 

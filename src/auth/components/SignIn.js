@@ -75,7 +75,7 @@ class SignIn extends Component {
           placeholder="Password"
           onChange={this.handleChange}
         />
-        <button type="submit">Sign In</button>
+        <button type="Submit" class="btn btn-info btn-lg">Sign In</button>
       </form>
     )
   }

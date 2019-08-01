@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import {allproducts} from './products/api'
+import {allproducts,destroy} from './products/api'
 import {Link, withRouter} from 'react-router-dom'
 
 class Home extends Component{
@@ -15,7 +15,24 @@ class Home extends Component{
         })
         
     }
+
+    destroy = (productId) => {
+        const user =  this.props.user
+        // console.log(user,productId)
+        destroy(productId)
+        .then(() =>  alert('deleted'))
+        .then(() => {
+            const newProducts = this.state.products.filter((product)  => product._id  !== productId)
+            this.setState({
+                products:newProducts
+            })
+        })
+         .catch((error) => console.log(error))
+    }
+    
+    
     render(){
+       
         return(
             <div >
             {this.state.products.map((product,index) => (
@@ -30,7 +47,12 @@ class Home extends Component{
             </div>        
             <div className="Product-Data">
                 <small className="Product-Price">${product.price}</small>
-                <button onClick={ product.addToCart } className="product-button Product-Add">Add to Cart</button>
+                <button onClick={ product.addToCart } className="product-button Product-Add">Buy This Product</button>
+                {(this.props.user && this.props.user.admin) ? 
+                    <button onClick={() => this.destroy(product._id)}>Remove</button>
+                    :
+                    ''}
+                
 
            </div>
             </div>

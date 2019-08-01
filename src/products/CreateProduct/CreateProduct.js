@@ -18,18 +18,19 @@ class CreateProduct extends Component{
         const newForm = Object.assign(this.state.dataForm)
         newForm[name] = value;
         this.setState({
-            dataFrom: newForm
+            dataForm: newForm
         })
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
         const newProduct = this.state.dataForm
+        console.log(newProduct)
         const user = this.props.user 
-        console.log(user)
+        // console.log(user.token)
         create(user, newProduct)
         .then(() => this.props.alert('Created', 'success'))
-        .then(() => this.props.history.push('/products'))
+        .then(() => this.props.history.push('/'))
         .catch((error) => console.log(error))
     }
 
@@ -37,16 +38,16 @@ class CreateProduct extends Component{
        
         return(
 
-            <form onSubmit={this.handleSubmit}>
-                <label>Name Of Product</label>
-                <input onChange={this.handleChange} type="text" name="name" value={this.state.dataForm.name} class="input1"></input>
-                <label>Description</label>
-                <input onChange={this.handleChange} type="text" name="description" value={this.state.dataForm.description} class="input"/>
-                <label>Image</label>
-                <input onChange={this.handleChange} type="text" name="imageURL" value={this.state.dataForm.imageURL} class="input3"/>
-                <label>Price</label>
-                <input onChange={this.handleChange} type="integer" name="price" value={this.state.dataForm.price} class="input4"/>
-                <button type="Submit" class="btn btn-info btn-lg">Add</button>
+            <form onSubmit={this.handleSubmit} className="auth-form">
+                <label></label>
+                <input onChange={this.handleChange} placeholder="Name Of Product" id ="inputIconEx2" class="form-control" type="text" name="name" value={this.state.dataForm.name} className="input1"></input>
+                <label></label>
+                <input onChange={this.handleChange} placeholder="Description" id ="inputIconEx2" class="form-control" type="text" name="description" value={this.state.dataForm.description} className="input"/>
+                <label></label>
+                <input onChange={this.handleChange} placeholder="Image URL"id ="inputIconEx2" class="form-control" type="text" name="imageURL" value={this.state.dataForm.imageURL} className="input3"/>
+                <label></label>
+                <input onChange={this.handleChange} placeholder="Price" id ="inputIconEx2" class="form-control" type="number" name="price" value={this.state.dataForm.price} className="input4"/>
+                <button type="Submit" class="btn btn-info btn-lg">Add Product</button>
             </form>
            
         )

@@ -65,8 +65,8 @@ class App extends Component {
           )}/>
 
           
-          <Route exact path='/'render={() => (
-            <Home />
+          <Route user={user} exact path='/'render={() => (
+            <Home user={user}/>
 
           )}/>
 

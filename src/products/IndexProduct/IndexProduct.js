@@ -42,26 +42,30 @@ class IndexProduct extends Component{
     render(){
         // console.log(this.props.user)
         return(
-            <div >
-            {this.state.products.map((product,index) => (
-            <div key={index}>
 
-            <div className="Product-Image-Wrapper ">
-                <img src={product.imageURL} alt={product.name} className="Product-Image" />
-            </div>
+            <h1>Hi World</h1>
 
-            <div className="Product-Title text-danger "  >
-                <p className="Product-Name">{product.name}</p>
-            </div>        
-            <div className="Product-Data">
-                <small className="Product-Price">${product.price}</small>
-                <button onClick={ product.addToCart } className="product-button Product-Add">Add to Cart</button>
-                <button onClick={() => this.destroy(product._id)}>Remove</button>
 
-           </div>
-                </div>
-            ))}
-        </div>       
+        //     <div >
+        //     {this.state.products.map((product,index) => (
+        //     <div key={index}>
+
+        //     <div className="Product-Image-Wrapper ">
+        //         <img src={product.imageURL} alt={product.name} className="Product-Image" />
+        //     </div>
+
+        //     <div className="Product-Title text-danger "  >
+        //         <p className="Product-Name">{product.name}</p>
+        //     </div>        
+        //     <div className="Product-Data">
+        //         <small className="Product-Price">${product.price}</small>
+        //         <button onClick={ product.addToCart } className="product-button Product-Add">Add to Cart</button>
+        //         <button onClick={() => this.destroy(product._id)}>Remove</button>
+
+        //    </div>
+        //         </div>
+        //     ))}
+        // </div>       
          )    
     }
 }
