@@ -10,15 +10,24 @@ This was my fourth and final project as part of the General Assembly Web Develop
 
 ## Use Stories
 
-•	As an unregistered user, I would like to sign up with email and password.
-•	As a registered user, I would like to sign in with email and password.
-•	As a signed in user, I would like to change password.
-•	As a signed in user, I would like to sign out.
-•	As an unregistered user, I would like to see all of the products.
-•	As a signed in user, I would like to search for products by name.
-•	As a signed in user, I would like to see all my past orders.
-•	As a signed in admin, I would like to be able to add products.
-•	As a signed in admin, I would like to remove products.
+As an unregistered user, I would like to sign up with email and password
+
+As a registered user, I would like to sign in with email and password.
+
+As a signed in user, I would like to change password.
+
+As a signed in user, I would like to sign out.
+
+As an unregistered user, I would like to see all of the products.
+
+As a signed in user, I would like to search for products by name.
+
+As a signed in user, I would like to see all my past orders.
+
+As a signed in admin, I would like to be able to add products.
+
+As a signed in admin, I would like to remove products.
+
 
 
 
@@ -72,11 +81,15 @@ this led me to me not being able to add the cart functionality so for the meanti
 ## Future Additons.
 
 
-•	Adding the cart and the checkout functionality.
-•	Using a payment method such as stripe.
-•	adding a filter that filters out products based on thier price(or anything else).
-•	adding a show page for product where the user can view more information about the specific product
-•	making the search feature more responisve(no need to refresh with each search).
+Adding the cart and the checkout functionality.
+
+Using a payment method such as stripe.
+
+adding a filter that filters out products based on thier price(or anything else).
+
+adding a show page for product where the user can view more information about the specific product
+
+making the search feature more responisve(no need to refresh with each search).
 
 
 
